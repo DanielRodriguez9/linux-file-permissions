@@ -11,39 +11,61 @@ The document includes step-by-step explanations, terminal commands, and screensh
 
 ---
 
-## 🧪 Practical Evidence
+## 📁 Project Description
 
-### 📁 1. Checking permissions with `ls -la`
-Used to identify the current permissions of files and directories under the `projects` folder.
+The research team at my organization needed to update file permissions for certain files and directories inside the projects directory. Currently, the permissions do not reflect the appropriate level of access. Reviewing and updating these permissions helps ensure system security. To complete this task, I followed these steps:
+
+🔍 Checking File and Directory Details
+I used the ls -la command to list all contents (including hidden files) of the projects directory. The output shows a directory called drafts, a hidden file .project_x.txt, and several other project files. The 10-character string in the first column indicates the permissions for each file or directory.
+
+🔤 Understanding the Permission String
+Each 10-character permission string can be broken down as follows:
+
+1st character: Type of file (d for directory, - for file).
+
+2nd–4th: Read (r), write (w), execute (x) permissions for the user.
+
+5th–7th: Permissions for the group.
+
+8th–10th: Permissions for others.
+
+
 
 ![ls -la](./capturas/detalles_archivo_directorio_ls.png)
 
 ---
 
-### ✏️ 2. Changing permissions with `chmod`
-Write permissions were removed for "others" on selected files.
+### ✏️ 2. Changing File Permissions with `chmod`
+The organization required that "others" should not have write access to any files. To comply, I removed the write permission for others on project_k.txt using chmod. I then verified the change with ls -la.
 
 ![chmod](./capturas/cambios_permiso_archivo_chmod.png)
 
 ---
 
-### 🕵️‍♂️ 3. Managing permissions for hidden files
-Adjusted read/write access for `.project_x.txt`.
+### 🕵️‍♂️ 3. Changing Permissions on a Hidden File
+The file .project_x.txt was archived and should not be writable by anyone, but both the user and group should retain read access. Using chmod, I:
 
-![chmod hidden file](./capturas/cambios_permiso_archivo_oculto.png)
+Removed write permissions from the user (u-w)
+
+Removed write permissions from the group (g-w)
+
+Added read permission to the group (g+r)
+
+![chmod hidden file](./capturas/cambios_cambios_permisos_archivo_oculto.png)
 
 ---
 
-### 🔒 4. Restricting access to a private directory
-Only the user `researcher2` should have access to the `drafts` directory.
+### 🔒 4. Restricting access to a private directory ( Changing Directory Permissions)
 
-![chmod directory](./capturas/cambios_permiso_directorio.png)
+Only the user researcher2 should have access to the drafts directory. I removed execute permissions for the group, ensuring only researcher2 could access it.
+
+![chmod directory](./capturas/cambiar_permisos_directorio.png)
 
 ---
 
-## ✅ Conclusion
+## ✅ Summary
 
-This task helped reinforce key concepts of **file permission management in Linux**, which are fundamental to maintaining operating system security. Commands like `chmod`, permission flags (`rwx`), and access control mechanisms were practiced and applied to real scenarios.
+I updated several file and directory permissions to match the intended authorization levels inside the projects directory. The process started by checking permissions with ls -la, followed by using chmod to make targeted adjustments.
 
 ---
 
