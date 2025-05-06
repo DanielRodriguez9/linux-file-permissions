@@ -51,7 +51,7 @@ Removed write permissions from the group (g-w)
 
 Added read permission to the group (g+r)
 
-![chmod hidden file](./capturas/cambios_cambios_permisos_archivo_oculto.png)
+![chmod hidden file](./capturas/cambios_permisos_archivo_oculto.png)
 
 ---
 
